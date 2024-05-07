@@ -18,7 +18,7 @@ import java.io.IOException;
         glue = {"StepDefinitions"},
         plugin = {"pretty", "json:target/cucumber-reports/cucumber.json" , "html:target/cucumber-reports/cucumber.html"}
 )
-public class Run {
+public class TestRun {
     @BeforeClass
     public static void setup() {
     }
