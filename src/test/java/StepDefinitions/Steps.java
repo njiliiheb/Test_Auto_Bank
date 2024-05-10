@@ -25,7 +25,7 @@ public class Steps {
 
     @Given("the user is on login page")
     public void the_user_is_on_login_page() throws InterruptedException, SQLException {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         System.out.println("the user is on login page");
         driver = new ChromeDriver(options);
