@@ -26,9 +26,6 @@
                     <includes>
                         <include>**/TestRun.java</include>
                     </includes>
-                    <systemPropertyVariables>
-                        <webdriver.chrome.driver>/var/lib/jenkins/.cache/selenium/chrome/linux64/124.0.6367.155/chrome</webdriver.chrome.driver>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
