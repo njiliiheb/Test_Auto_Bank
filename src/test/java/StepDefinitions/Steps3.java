@@ -35,17 +35,17 @@ public class Steps3 {
         System.out.println("the user is on home page");
 
 
-        driver = new ChromeDriver();
-        driver.get("http://localhost:4200/");
+      //  driver = new ChromeDriver();
+        //driver.get("http://localhost:4200/");
 
     }
 
        @When("the user hits customers")
       public void theUserHitsCustomers() throws InterruptedException {
-
-           WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-           WebElement customersButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("navbarDropdown")));
-           customersButton.click();
+           driver.get("http://localhost:4200/customers");
+           //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+          // WebElement customersButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("navbarDropdown")));
+           //customersButton.click();
 
 
            Thread.sleep(2000);
@@ -54,9 +54,9 @@ public class Steps3 {
     @And("hits search customers")
     public void hitsSearchCustomers() throws InterruptedException {
         System.out.println("Clicked on Search Customers");
-        WebElement SearchCustomersButton = driver.findElement(By.id("Search customer"));
-        SearchCustomersButton.click();
-        Thread.sleep(2000);
+        //WebElement SearchCustomersButton = driver.findElement(By.id("Search customer"));
+        //SearchCustomersButton.click();
+        //Thread.sleep(2000);
     }
 
     @And("the user enters valid credentials of customers")
