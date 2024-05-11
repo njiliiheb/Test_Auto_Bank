@@ -1,27 +1,20 @@
 package StepDefinitions;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.Then;
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.sql.*;
 import java.time.Duration;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.logging.LogType;
-import org.openqa.selenium.logging.LoggingPreferences;
-import java.util.logging.Level;
-import io.cucumber.java.Scenario;
+import java.util.concurrent.TimeUnit;
 
 
 
@@ -42,9 +35,12 @@ public class Steps3 {
 
        @When("the user hits customers")
       public void theUserHitsCustomers() throws InterruptedException {
-        System.out.println("Clicked on Customers");
+           System.out.println("Clicked on Customers");
+        
+           driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
            WebElement customersDropdown = driver.findElement(By.id("navbarDropdown"));
            customersDropdown.click();
+
            Thread.sleep(2000);
       }
 
