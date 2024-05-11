@@ -42,9 +42,10 @@ public class Steps3 {
 
        @When("the user hits customers")
       public void theUserHitsCustomers() throws InterruptedException {
+          
         System.out.println("Clicked on Customers");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement customersButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("navbarDropdown")));
+           WebElement customersButton = driver.findElement(By.id("navbarDropdown"));
           customersButton.click();
 
         Thread.sleep(2000);
