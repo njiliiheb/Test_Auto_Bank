@@ -42,6 +42,7 @@ public class Steps3 {
 
        @When("the user hits customers")
       public void theUserHitsCustomers() throws InterruptedException {
+           driver = new ChromeDriver();
            driver.get("http://localhost:4200/customers");
            //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
           // WebElement customersButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("navbarDropdown")));
