@@ -5,11 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
-import org.junit.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,22 +16,20 @@ import java.sql.*;
 import java.time.Duration;
 
 public class Steps {
-     WebDriver driver;
+    private ChromeDriver driver;
 
     private String dbUsername;
     private String dbPassword;
 
-    @Before
-    public void setUp() {
-        System.out.println("the user is on login page");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("http://localhost:4200/login");
 
-    }
     @Given("the user is on login page")
     public void the_user_is_on_login_page() throws InterruptedException, SQLException {
+
+        System.out.println("the user is on login page");
+        driver = new ChromeDriver();
+        driver.get("http://localhost:4200/login");
         Thread.sleep(2000);
+
 
         // Establish a connection to your database
         String dbUrl = "jdbc:mysql://localhost:3306/E-BANK";
