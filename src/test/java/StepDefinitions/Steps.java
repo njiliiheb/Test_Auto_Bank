@@ -14,24 +14,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.*;
 import java.time.Duration;
-import io.cucumber.java.Before;
-public class Steps {
 
+public class Steps {
+    private ChromeDriver driver;
 
     private String dbUsername;
     private String dbPassword;
 
-    private ChromeDriver driver;
-
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\ProgramData\\Jenkins\\.jenkins\\tools\\chromedriver\\chromedriver.exe");
-        driver = new ChromeDriver();
-    }
 
     @Given("the user is on login page")
     public void the_user_is_on_login_page() throws InterruptedException, SQLException {
+
         System.out.println("the user is on login page");
+        driver = new ChromeDriver();
         driver.get("http://localhost:4200/login");
         Thread.sleep(2000);
 
