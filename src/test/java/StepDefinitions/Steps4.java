@@ -6,13 +6,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.sql.*;
 import java.time.Duration;
-
 public class Steps4 {
 
     private ChromeDriver driver;
@@ -27,12 +29,11 @@ public class Steps4 {
     }
 
     @When("the user hits accounts")
-    public void theUserHitsAccounts() throws InterruptedException {
+    public void theUserHitsAccounts() {
         System.out.println("Clicked on Accounts");
-        WebElement accountsButton = driver.findElement(By.id("account"));  // Update the ID to "save"
-        accountsButton.click();
-        Thread.sleep(2000);
-
+        WebElement accountsLink = driver.findElement(By.id("account"));
+        JavascriptExecutor js = driver;
+        js.executeScript("arguments[0].click();", accountsLink);
     }
 
 
