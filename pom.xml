@@ -63,12 +63,6 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version> <!-- Use the latest version -->
-            <scope>test</scope> <!-- Or whichever scope is appropriate for your project -->
-        </dependency>
 
         <dependency>
             <groupId>net.masterthought</groupId>
