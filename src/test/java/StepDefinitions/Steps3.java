@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.*;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 
 
@@ -35,10 +35,9 @@ public class Steps3 {
 
        @When("the user hits customers")
       public void theUserHitsCustomers() throws InterruptedException {
-           System.out.println("Clicked on Customers");
-           WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-           WebElement customersDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("customers")));
-           customersDropdown.click();
+           WebElement customersDropdown = driver.findElement(By.id("customers"));
+           JavascriptExecutor js = (JavascriptExecutor) driver;
+           js.executeScript("arguments[0].click();", customersDropdown);
 
            Thread.sleep(2000);
       }
