@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +16,7 @@ import java.sql.*;
 import java.time.Duration;
 
 public class Steps {
-    private ChromeDriver driver;
+    public ChromeDriver driver;
 
     private String dbUsername;
     private String dbPassword;
@@ -25,9 +24,9 @@ public class Steps {
 
     @Given("the user is on login page")
     public void the_user_is_on_login_page() throws InterruptedException, SQLException {
-        ChromeOptions options = new ChromeOptions();
+
         System.out.println("the user is on login page");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.get("http://localhost:4200/login");
         Thread.sleep(2000);
 
