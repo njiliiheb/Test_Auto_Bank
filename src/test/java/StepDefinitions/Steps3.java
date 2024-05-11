@@ -45,8 +45,10 @@ public class Steps3 {
     @And("hits search customers")
     public void hitsSearchCustomers() throws InterruptedException {
         System.out.println("Clicked on Search Customers");
-        WebElement SearchCustomersButton = driver.findElement(By.id("Search customer"));
-        SearchCustomersButton.click();
+        WebElement searchCustomersLink = driver.findElement(By.id("Search customer"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", searchCustomersLink);
+
         Thread.sleep(2000);
     }
 
