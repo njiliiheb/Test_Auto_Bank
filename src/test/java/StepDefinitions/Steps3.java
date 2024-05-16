@@ -26,8 +26,6 @@ public class Steps3 {
     @Given("the user is on home page")
     public void the_user_is_on_home_page() {
         System.out.println("the user is on home page");
-
-
         driver = new ChromeDriver();
         driver.get("http://localhost:4200/");
 
