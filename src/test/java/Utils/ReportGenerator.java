@@ -16,11 +16,9 @@ public class ReportGenerator {
         Configuration configuration = new Configuration(reportOutputDirectory, "CucumberProject");
         configuration.setBuildNumber("1");
 
-        // Add metadata
+
         configuration.addClassifications("Platform", "Windows");
         configuration.addClassifications("Browser", "Chrome");
-
-
 
 
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
