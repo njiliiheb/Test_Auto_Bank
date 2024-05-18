@@ -28,6 +28,7 @@ public class Steps7 {
     public void the_user_is_on_accounts_page2() throws SQLException, InterruptedException {
         System.out.println("the user is on accounts page");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/accounts");
         Thread.sleep(2000);
 
