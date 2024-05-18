@@ -45,6 +45,7 @@ public class Steps2 {
     public void the_user_is_on_new_customer_page() {
         System.out.println("the user is on new customer page");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/new-customer");
 
     }
