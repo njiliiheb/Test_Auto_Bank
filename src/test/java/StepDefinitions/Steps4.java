@@ -24,6 +24,7 @@ public class Steps4 {
         System.out.println("the user is on home page");
 
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/");
 
     }
