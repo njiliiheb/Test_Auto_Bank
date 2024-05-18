@@ -27,22 +27,22 @@ public class Steps {
 
         System.out.println("the user is on login page");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/login");
         Thread.sleep(2000);
 
 
-        // Establish a connection to your database
         String dbUrl = "jdbc:mysql://localhost:3306/E-BANK";
         String dbUser = "root";
         String dbPass = "";
         Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
-        // Execute a SQL query to retrieve the username and password
+
         String sql = "SELECT username, password FROM `e-bank`.app_user WHERE id = 1";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
-        // Retrieve the username and password from the result set
+
         if (resultSet.next()) {
             dbUsername = resultSet.getString("username");
             dbPassword = resultSet.getString("password");
