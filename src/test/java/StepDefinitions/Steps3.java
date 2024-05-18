@@ -27,6 +27,7 @@ public class Steps3 {
     public void the_user_is_on_home_page() {
         System.out.println("the user is on home page");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/");
 
     }
@@ -57,12 +58,12 @@ public class Steps3 {
         String dbPass = "";
         Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
-        // Execute a SQL query to retrieve the username and password
+
         String sql = "SELECT name FROM `customer` limit 1";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
-        // Retrieve the username and password from the result set
+
         if (resultSet.next()) {
             dbname= resultSet.getString("name");
 
