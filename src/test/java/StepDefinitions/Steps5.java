@@ -26,6 +26,7 @@ public class Steps5 {
     public void the_user_is_on_accounts_page() throws SQLException, InterruptedException {
         System.out.println("the user is on accounts page");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:4200/accounts");
         Thread.sleep(2000);
 
@@ -41,7 +42,7 @@ public class Steps5 {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
-        // Retrieve the username and password from the result set
+
         if (resultSet.next()) {
             idaccount1 = resultSet.getString("ID");
 
