@@ -1,5 +1,2 @@
-utils\ReportGenerator.class
-Runners\TestRun.class
 StepDefinitions\Steps2.class
-utils\EmailReport$1.class
-utils\EmailReport.class
+Runners\TestRun.class

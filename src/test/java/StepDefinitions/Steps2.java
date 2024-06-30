@@ -131,12 +131,12 @@ public void hits_save() throws InterruptedException {
     Thread.sleep(2000);
 }
 @When("the user hits spin")
-public void hits_spin() throws InterruptedException {
+public void hits_spin() {
     System.out.println("Clicked on spin");
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     WebElement spinButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Spin')]")));
     spinButton.click();
-    Thread.sleep(2000);
+
 }
 
 
