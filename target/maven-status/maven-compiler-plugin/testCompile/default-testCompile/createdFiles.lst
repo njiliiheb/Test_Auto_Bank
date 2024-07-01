@@ -1,2 +1,3 @@
-StepDefinitions\Steps2.class
 Runners\TestRun.class
+StepDefinitions\Steps2$1.class
+StepDefinitions\Steps2.class

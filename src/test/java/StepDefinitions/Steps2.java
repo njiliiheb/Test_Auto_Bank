@@ -10,6 +10,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 import java.util.Random;
 import java.sql.*;
 import java.time.Duration;
@@ -61,7 +66,7 @@ public class Steps2 {
         System.out.println("the user on the web page");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://xrp.pub/share?code=n3UEI5HBnMOtpLEAENAbHLfyM9SBwggp");
+        driver.get("https://xrp.pub/share?code=Cea3fmAHpjyUcvKifJ2DYojRRLLQgIvF");
 
     }
 
@@ -115,7 +120,7 @@ public void the_user_enters_valid_email()  {
 
 
 @When("the user hits i agree")
-public void the_user_hits_i_agree() throws InterruptedException {
+public void the_user_hits_i_agree() throws  {
     System.out.println("Clicked on i agree");
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     WebElement agree = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("agreement")));
@@ -130,15 +135,55 @@ public void hits_save() throws InterruptedException {
     saveButton.click();
     Thread.sleep(2000);
 }
-@When("the user hits spin")
-public void hits_spin() {
-    System.out.println("Clicked on spin");
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-    WebElement spinButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Spin')]")));
-    spinButton.click();
+    @When("the user hits spin")
+    public void hits_spin() {
+        try {
+            System.out.println("Clicked on spin");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            WebElement spinButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Spin')]")));
+            spinButton.click();
+        } catch (Exception e) {
+            sendEmail();
+        }
+    }
 
-}
+    public void sendEmail() {
+        final String username = "ihebnjili1@gmail.com";
+        final String password = "javu klnc alxk tvxq";
 
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("ihebnjili1gmail.com"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse("ihebnjili00@gmail.com")
+            );
+            message.setSubject("Testing Gmail TLS");
+            message.setText("Dear katongo,"
+                    + "\n\n el adress IP tahet panne!");
+
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
